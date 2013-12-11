@@ -93,9 +93,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
-# Torch
+# OmniTorch
 PRODUCT_PACKAGES += \
-        Torch
+        OmniTorch
 
 # NFC
 PRODUCT_PACKAGES += \

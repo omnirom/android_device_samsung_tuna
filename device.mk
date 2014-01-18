@@ -72,8 +72,8 @@ PRODUCT_COPY_FILES += \
 	device/samsung/tuna/ueventd.tuna.rc:root/ueventd.tuna.rc \
 	device/samsung/tuna/media_profiles.xml:system/etc/media_profiles.xml \
 	device/samsung/tuna/media_codecs.xml:system/etc/media_codecs.xml \
-    	device/samsung/tuna/gps.conf:system/etc/gps.conf \
-    	device/samsung/tuna/twrp.fstab:recovery/root/etc/twrp.fstab
+	device/samsung/tuna/gps.conf:system/etc/gps.conf \
+	device/samsung/tuna/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # Wifi
 ifneq ($(TARGET_PREBUILT_WIFI_MODULE),)
@@ -196,10 +196,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	e2fsck \
 	setup_fs
-
-# Don't preload EGL drivers in Zygote at boot time
-PRODUCT_PROPERTY_OVERRIDES += \
-        ro.zygote.disable_gl_preload=true
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 

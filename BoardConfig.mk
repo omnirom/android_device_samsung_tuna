@@ -128,7 +128,7 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 TARGET_RECOVERY_INITRC := device/samsung/tuna/init.recovery.rc
-TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_JB_CRYPTO := true
 TW_CRYPTO_FS_TYPE := "ext4"
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/omap/omap_hsmmc.0/by-name/userdata"
 TW_CRYPTO_MNT_POINT := "/data"

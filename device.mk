@@ -199,6 +199,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.hwui.disable_scissor_opt=true \
 	debug.hwui.render_dirty_regions=false
 
+# GPU producer to CPU consumer not supported
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.bq.gpu_to_cpu_unsupported=1
+
 # Disable VFR support for encoders
 PRODUCT_PROPERTY_OVERRIDES += \
 	debug.vfr.enable=0

@@ -28,15 +28,17 @@ USE_CAMERA_STUB := true
 TARGET_BOARD_INFO_FILE ?= device/samsung/tuna/board-info.txt
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/samsung/tuna/bluetooth
 
+# Processor
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
+TARGET_CPU_VARIANT := cortex-a9
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_VARIANT := cortex-a9
 
 TARGET_NO_BOOTLOADER := true
 
+# Kernel
 BOARD_KERNEL_BASE := 0x80000000
 # BOARD_KERNEL_CMDLINE :=
 
@@ -77,7 +79,7 @@ BOARD_RECOVERY_SWIPE := true
 TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_tuna
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/tuna
 
-TARGET_RECOVERY_FSTAB = device/samsung/tuna/fstab.tuna
+TARGET_RECOVERY_FSTAB = device/samsung/tuna/rootdir/fstab.tuna
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 685768704
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 14539537408
@@ -114,7 +116,7 @@ BOARD_HAL_STATIC_LIBRARIES := libdumpstate.tuna
 BOARD_USES_SECURE_SERVICES := true
 
 BOARD_HAS_NO_SELECT_BUTTON := true
-BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/tuna/recovery_keys.c
+BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/tuna/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
 
 BOARD_SEPOLICY_DIRS += \
@@ -123,14 +125,14 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SEPOLICY_UNION += \
         genfs_contexts \
         file_contexts
-        
+
 #TWRP config
 DEVICE_RESOLUTION := 720x1280
 RECOVERY_SDCARD_ON_DATA := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_REAL_SDCARD := true
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-TARGET_RECOVERY_INITRC := device/samsung/tuna/init.recovery.rc
+TARGET_RECOVERY_INITRC := device/samsung/tuna/recovery/init.recovery.rc
 TW_INCLUDE_JB_CRYPTO := true
 TW_CRYPTO_FS_TYPE := "ext4"
 TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/omap/omap_hsmmc.0/by-name/userdata"
@@ -144,7 +146,6 @@ SP1_MOUNTABLE := 1
 #TW_HAS_DOWNLOAD_MODE := true # does not work on Galaxy Nexus
 TW_FLASH_FROM_STORAGE := true
 TW_NO_USB_STORAGE := true
-
 
 #TW_INCLUDE_DUMLOCK := true
 TW_INTERNAL_STORAGE_PATH := "/data/media"

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b713d8b_8e142fef",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1000649
+      },
+      "writtenOn": "2014-07-18T18:33:31Z",
+      "side": 1,
+      "message": "Mind taking this out? Seems to be from your other work and doesn\u0027t do anything currently ;)",
+      "revId": "76bf8862f659cd2a1bcb2e30e23438567b67927b",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}

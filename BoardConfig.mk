@@ -62,8 +62,7 @@ USE_OPENGL_RENDERER := true
 # Force the screenshot path to CPU consumer
 COMMON_GLOBAL_CFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
 
-# Force using mic audio for screenrecord, otherwise it crashes instantly
-BOARD_SCREENRECORD_DEVICE_FORCE_AUDIO_MIC := true
+BOARD_USE_TI_DUCATI_H264_PROFILE := true
 
 # set if the target supports FBIO_WAITFORVSYNC
 TARGET_HAS_WAITFORVSYNC := true

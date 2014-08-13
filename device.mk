@@ -20,6 +20,7 @@
 # Everything in this directory will become public
 
 DEVICE_FOLDER := device/samsung/tuna
+
 DEVICE_PACKAGE_OVERLAYS := $(DEVICE_FOLDER)/overlay
 
 # This device is xhdpi.  However the platform doesn't
@@ -34,7 +35,7 @@ PRODUCT_PACKAGES := \
 	lights.tuna \
 	nfc.tuna \
 	power.tuna \
-	audio.primary.tuna \
+	audio.primary.tuna
 
 # Sensors
 PRODUCT_PACKAGES += \
@@ -76,7 +77,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/rootdir/init.tuna.rc:root/init.tuna.rc \
 	$(DEVICE_FOLDER)/rootdir/init.tuna.usb.rc:root/init.tuna.usb.rc \
-	$(DEVICE_FOLDER)/rootdir/ueventd.tuna.rc:root/ueventd.tuna.rc \
+	$(DEVICE_FOLDER)/rootdir/ueventd.tuna.rc:root/ueventd.tuna.rc
 
 # Fstab
 PRODUCT_COPY_FILES += \
@@ -90,7 +91,7 @@ PRODUCT_COPY_FILES += \
 # Media profiles
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-	$(DEVICE_FOLDER)/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml \
+	$(DEVICE_FOLDER)/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml
 
 # Wifi
 ifneq ($(TARGET_PREBUILT_WIFI_MODULE),)
@@ -213,6 +214,4 @@ $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
 $(call inherit-product-if-exists, vendor/ti/proprietary/omap4/ti-omap4-vendor.mk)
 $(call inherit-product-if-exists, vendor/samsung/tuna/device-vendor.mk)
 
-BOARD_WLAN_DEVICE_REV := bcm4330_b2
-WIFI_BAND             := 802_11_ABG
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)

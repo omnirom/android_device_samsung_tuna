@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2b6ec9b0_27c7c24c",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000649
+      },
+      "writtenOn": "2014-08-14T15:38:15Z",
+      "side": 1,
+      "message": "Could you by chance remove the BOARD_HARDWARE_CLASS and remove the cmhw folder as well? These are useless on OmniROM.\nThe commit message should probably be updated as well then, maybe something along the lines of \"tuna: more organization and clean-up.\"\nThanks!",
+      "revId": "c896b3a79443ab4f204a759effa294c3d01fd094",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}

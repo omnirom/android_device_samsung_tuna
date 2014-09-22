@@ -47,12 +47,6 @@ PRODUCT_PACKAGES += \
 	charger \
 	charger_res_images
 
-# Support for Browser's saved page feature. This allows
-# for pages saved on previous versions of the OS to be
-# viewed on the current OS.
-PRODUCT_PACKAGES += \
-	libskia_legacy
-
 # Audio
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \

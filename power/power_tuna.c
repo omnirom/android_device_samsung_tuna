@@ -50,14 +50,14 @@ static void sysfs_write(char *path, char *s)
 
     if (fd < 0) {
         strerror_r(errno, buf, sizeof(buf));
-        ALOGE("Error opening %s: %s\n", path, buf);
+        /*ALOGE("Error opening %s: %s\n", path, buf);*/
         return;
     }
 
     len = write(fd, s, strlen(s));
     if (len < 0) {
         strerror_r(errno, buf, sizeof(buf));
-        ALOGE("Error writing to %s: %s\n", path, buf);
+        /*ALOGE("Error writing to %s: %s\n", path, buf);*/
     }
 
     close(fd);
@@ -108,7 +108,7 @@ static int boostpulse_open(struct tuna_power_module *tuna)
         if (tuna->boostpulse_fd < 0) {
             if (!tuna->boostpulse_warned) {
                 strerror_r(errno, buf, sizeof(buf));
-                ALOGE("Error opening %s: %s\n", BOOSTPULSE_PATH, buf);
+                /*ALOGE("Error opening %s: %s\n", BOOSTPULSE_PATH, buf);*/
                 tuna->boostpulse_warned = 1;
             }
         }
@@ -165,7 +165,7 @@ static void tuna_power_hint(struct power_module *module, power_hint_t hint,
 
             if (len < 0) {
                 strerror_r(errno, buf, sizeof(buf));
-                ALOGE("Error writing to %s: %s\n", BOOSTPULSE_PATH, buf);
+                /*ALOGE("Error writing to %s: %s\n", BOOSTPULSE_PATH, buf);*/
             }
         }
         break;

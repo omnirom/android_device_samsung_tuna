@@ -154,10 +154,6 @@ PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/vendor/firmware/mms144_ts_rev31.fw:system/vendor/firmware/mms144_ts_rev31.fw \
 	$(DEVICE_FOLDER)/prebuilt/vendor/firmware/mms144_ts_rev32.fw:system/vendor/firmware/mms144_ts_rev32.fw
 
-# Portrait dock image
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/vendor/res/images/dock/dock.png:system/vendor/res/images/dock/dock.png
-
 # Commands to migrate prefs from com.android.nfc3 to com.android.nfc
 PRODUCT_COPY_FILES += $(call add-to-product-copy-files-if-exists,\
 	packages/apps/Nfc/migrate_nfc.txt:system/etc/updatecmds/migrate_nfc.txt)

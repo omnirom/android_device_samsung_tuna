@@ -118,12 +118,12 @@ PRODUCT_PACKAGES += \
 
 # Key maps
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/tuna-gpio-keypad.kl:system/usr/keylayout/tuna-gpio-keypad.kl \
-	$(DEVICE_FOLDER)/prebuilt/usr/keychars/tuna-gpio-keypad.kcm:system/usr/keychars/tuna-gpio-keypad.kcm \
-	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
-	$(DEVICE_FOLDER)/prebuilt/usr/keychars/sec_jack.kcm:system/usr/keychars/sec_jack.kcm \
-	$(DEVICE_FOLDER)/prebuilt/usr/keylayout/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl \
-	$(DEVICE_FOLDER)/prebuilt/usr/keychars/sii9234_rcp.kcm:system/usr/keychars/sii9234_rcp.kcm
+	$(DEVICE_FOLDER)/keymap/tuna-gpio-keypad.kl:system/usr/keylayout/tuna-gpio-keypad.kl \
+	$(DEVICE_FOLDER)/keymap/tuna-gpio-keypad.kcm:system/usr/keychars/tuna-gpio-keypad.kcm \
+	$(DEVICE_FOLDER)/keymap/sec_jack.kl:system/usr/keylayout/sec_jack.kl \
+	$(DEVICE_FOLDER)/keymap/sec_jack.kcm:system/usr/keychars/sec_jack.kcm \
+	$(DEVICE_FOLDER)/keymap/sii9234_rcp.kl:system/usr/keylayout/sii9234_rcp.kl \
+	$(DEVICE_FOLDER)/keymap/sii9234_rcp.kcm:system/usr/keychars/sii9234_rcp.kcm
 
 # Input device calibration files
 PRODUCT_COPY_FILES += \

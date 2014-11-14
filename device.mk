@@ -58,7 +58,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
-	$(DEVICE_FOLDER)/prebuilt/vendor/etc/audio_effects.conf:system/vendor/etc/audio_effects.conf
+	$(DEVICE_FOLDER)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
 PRODUCT_PACKAGES += \
 	tuna_hdcp_keys

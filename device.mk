@@ -21,7 +21,7 @@
 
 DEVICE_FOLDER := device/samsung/tuna
 
-DEVICE_PACKAGE_OVERLAYS := $(DEVICE_FOLDER)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay
 
 # Include Omni specific additions
 $(call inherit-product, device/samsung/tuna/device-omni.mk)
@@ -34,7 +34,7 @@ PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # HALs
-PRODUCT_PACKAGES := \
+PRODUCT_PACKAGES += \
 	lights.tuna \
 	nfc.tuna \
 	power.tuna \
@@ -45,7 +45,7 @@ PRODUCT_PACKAGES += \
 	sensors.tuna \
 	libinvensense_mpl
 
-# Support charger mode
+# Charging mode
 PRODUCT_PACKAGES += \
 	charger \
 	charger_res_images
@@ -57,7 +57,7 @@ PRODUCT_PACKAGES += \
 	audio.r_submix.default
 
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/etc/audio_policy.conf:system/etc/audio_policy.conf \
+	$(DEVICE_FOLDER)/audio/audio_policy.conf:system/etc/audio_policy.conf \
 	$(DEVICE_FOLDER)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf
 
 PRODUCT_PACKAGES += \
@@ -82,16 +82,16 @@ PRODUCT_COPY_FILES += \
 
 # GPS
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/etc/gps.conf:system/etc/gps.conf
+	$(DEVICE_FOLDER)/gps.conf:system/etc/gps.conf
 
 # Media profiles
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/etc/media_profiles.xml:system/etc/media_profiles.xml \
-	$(DEVICE_FOLDER)/prebuilt/etc/media_codecs.xml:system/etc/media_codecs.xml
+	$(DEVICE_FOLDER)/media_profiles.xml:system/etc/media_profiles.xml \
+	$(DEVICE_FOLDER)/media_codecs.xml:system/etc/media_codecs.xml
 
 # Wifi
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/prebuilt/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
+	$(DEVICE_FOLDER)/bcmdhd.cal:system/etc/wifi/bcmdhd.cal
 
 PRODUCT_PROPERTY_OVERRIDES := \
 	wifi.interface=wlan0
@@ -200,9 +200,8 @@ PRODUCT_PACKAGES += \
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 
-$(call inherit-product-if-exists, vendor/nxp/pn544/nxp-pn544-fw-vendor.mk)
 $(call inherit-product, hardware/ti/omap4xxx/omap4.mk)
-$(call inherit-product-if-exists, vendor/ti/proprietary/omap4/ti-omap4-vendor.mk)
-$(call inherit-product-if-exists, vendor/samsung/tuna/device-vendor.mk)
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
+
+$(call inherit-product-if-exists, vendor/samsung/tuna/device-vendor.mk)

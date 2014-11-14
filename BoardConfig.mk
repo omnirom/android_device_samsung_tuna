@@ -49,10 +49,6 @@ BOARD_KERNEL_BASE := 0x80000000
 TARGET_KERNEL_CONFIG := omnirom_tuna_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/tuna
 
-# Fall back to prebuilt kernel if the sources aren't present
-# or inline kernel building is not supported
-TARGET_PREBUILT_KERNEL := $(DEVICE_FOLDER)/kernel
-
 # EGL
 BOARD_EGL_CFG := $(DEVICE_FOLDER)/prebuilt/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true

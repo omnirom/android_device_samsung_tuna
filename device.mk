@@ -35,6 +35,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # HALs
 PRODUCT_PACKAGES += \
+	hwcomposer.tuna \
 	lights.tuna \
 	nfc.tuna \
 	power.tuna \
@@ -55,6 +56,10 @@ PRODUCT_PACKAGES += \
 	audio.a2dp.default \
 	audio.usb.default \
 	audio.r_submix.default
+
+# Symlinks
+PRODUCT_PACKAGES += \
+	libion.so
 
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/audio/audio_policy.conf:system/etc/audio_policy.conf \
@@ -197,6 +202,10 @@ PRODUCT_PACKAGES += \
 	fsck.f2fs \
 	fibmap.f2fs \
 	f2fstat
+
+# TI OMAP4
+PRODUCT_PACKAGES += \
+    libion_ti
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 

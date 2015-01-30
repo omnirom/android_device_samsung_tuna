@@ -32,4 +32,8 @@ LOCAL_MODULE_TAGS := optional
 
 LOCAL_CFLAGS := -Wall -Werror
 
+ifeq ($(TARGET_USE_CHARGING_LED),true)
+	LOCAL_CFLAGS += -DCHARGING_LED
+endif
+
 include $(BUILD_SHARED_LIBRARY)

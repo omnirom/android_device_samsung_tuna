@@ -56,12 +56,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	charger_res_images
 
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/audio/audio_policy.conf:system/etc/audio_policy.conf \
-	$(DEVICE_FOLDER)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf
-
 PRODUCT_PACKAGES += \
 	tuna_hdcp_keys
+
+ifeq ($(TARGET_TUNA_AUDIO_HDMI),true)
+PRODUCT_COPY_FILES += \
+	$(DEVICE_FOLDER)/audio/policy/audio_policy.hdmi.conf:system/etc/audio_policy.conf
+else
+PRODUCT_COPY_FILES += \
+	$(DEVICE_FOLDER)/audio/policy/audio_policy.default.conf:system/etc/audio_policy.conf
+endif
 
 # Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \

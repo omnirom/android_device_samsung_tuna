@@ -109,7 +109,9 @@
 
 /* ALSA cards for OMAP4 */
 #define CARD_OMAP4_ABE 0
+#ifdef USE_HDMI_AUDIO
 #define CARD_OMAP4_HDMI 1
+#endif
 #define CARD_TUNA_DEFAULT CARD_OMAP4_ABE
 
 /* ALSA ports for OMAP4 */
@@ -121,7 +123,9 @@
 #define PORT_MODEM 5
 #define PORT_MM_LP 6
 #define PORT_SPDIF 9
+#ifdef USE_HDMI_AUDIO
 #define PORT_HDMI 0
+#endif
 
 /* User serviceable */
 /* #define to use mmap no-irq mode for playback, #undef for non-mmap irq mode */
@@ -179,12 +183,14 @@
 #define DEEP_BUFFER_LONG_PERIOD_START_THRES \
                             ((DEEP_BUFFER_LONG_PERIOD_SIZE * PLAYBACK_DEEP_BUFFER_LONG_PERIOD_COUNT) / 2)
 
+#ifdef USE_HDMI_AUDIO
 /* number of frames per period for HDMI multichannel output */
 #define HDMI_MULTI_PERIOD_SIZE  1024
 /* number of periods for HDMI multichannel output */
 #define HDMI_MULTI_PERIOD_COUNT 4
 /* default number of channels for HDMI multichannel output */
 #define HDMI_MULTI_DEFAULT_CHANNEL_COUNT 6
+#endif
 
 /* write function */
 #ifdef PLAYBACK_MMAP
@@ -351,6 +357,7 @@ struct pcm_config pcm_config_tones = {
 #endif
 };
 
+#ifdef USE_HDMI_AUDIO
 struct pcm_config pcm_config_hdmi_multi = {
     .channels = HDMI_MULTI_DEFAULT_CHANNEL_COUNT, /* changed when the stream is opened */
     .rate = MM_FULL_POWER_SAMPLING_RATE, /* changed when the stream is opened */
@@ -360,6 +367,7 @@ struct pcm_config pcm_config_hdmi_multi = {
     .start_threshold = 0,
     .avail_min = 0,
 };
+#endif
 
 struct pcm_config pcm_config_mm_ul = {
     .channels = 2,
@@ -655,7 +663,9 @@ struct mixer_ctls
 enum output_type {
     OUTPUT_DEEP_BUF,      // deep PCM buffers output stream
     OUTPUT_LOW_LATENCY,   // low latency output stream
+#ifdef USE_HDMI_AUDIO
     OUTPUT_HDMI,
+#endif
     OUTPUT_TOTAL
 };
 
@@ -689,7 +699,9 @@ struct tuna_audio_device {
 enum pcm_type {
     PCM_NORMAL = 0,
     PCM_SPDIF,
+#ifdef USE_HDMI_AUDIO
     PCM_HDMI,
+#endif
     PCM_TOTAL,
 };
 
@@ -1433,6 +1445,7 @@ static int start_output_stream_low_latency(struct tuna_stream_out *out)
                                            flags, &out->config[PCM_SPDIF]);
     }
 
+#ifdef USE_HDMI_AUDIO
     /* priority is given to multichannel HDMI output */
     if ((adev->out_device & AUDIO_DEVICE_OUT_AUX_DIGITAL) &&
             (adev->outputs[OUTPUT_HDMI] == NULL || adev->outputs[OUTPUT_HDMI]->standby)) {
@@ -1442,6 +1455,7 @@ static int start_output_stream_low_latency(struct tuna_stream_out *out)
         out->pcm[PCM_HDMI] = pcm_open(CARD_OMAP4_HDMI, PORT_HDMI,
                                           flags, &out->config[PCM_HDMI]);
     }
+#endif
 
     /* Close any PCMs that could not be opened properly and return an error */
     for (i = 0; i < PCM_TOTAL; i++) {
@@ -1518,6 +1532,7 @@ static int start_output_stream_deep_buffer(struct tuna_stream_out *out)
     return 0;
 }
 
+#ifdef USE_HDMI_AUDIO
 static int start_output_stream_hdmi(struct tuna_stream_out *out)
 {
     struct tuna_audio_device *adev = out->dev;
@@ -1541,6 +1556,7 @@ static int start_output_stream_hdmi(struct tuna_stream_out *out)
     }
     return 0;
 }
+#endif
 
 static int check_input_parameters(uint32_t sample_rate, audio_format_t format, int channel_count)
 {
@@ -1697,12 +1713,14 @@ static uint32_t out_get_sample_rate(const struct audio_stream *stream __unused)
 #endif
 }
 
+#ifdef USE_HDMI_AUDIO
 static uint32_t out_get_sample_rate_hdmi(const struct audio_stream *stream)
 {
     struct tuna_stream_out *out = (struct tuna_stream_out *)stream;
 
     return out->config[PCM_HDMI].rate;
 }
+#endif
 
 static int out_set_sample_rate(struct audio_stream *stream __unused, uint32_t rate __unused)
 {
@@ -1744,10 +1762,12 @@ static size_t out_get_buffer_size_deep_buffer(const struct audio_stream *stream)
     return size * audio_stream_out_frame_size((const struct audio_stream_out *)stream);
 }
 
+#ifdef USE_HDMI_AUDIO
 static size_t out_get_buffer_size_hdmi(const struct audio_stream *stream)
 {
     return HDMI_MULTI_PERIOD_SIZE * audio_stream_out_frame_size((const struct audio_stream_out *)stream);
 }
+#endif
 
 static audio_channel_mask_t out_get_channels(const struct audio_stream *stream)
 {
@@ -1796,6 +1816,7 @@ static int do_output_standby(struct tuna_stream_out *out)
             set_route_by_array(adev->mixer, hf_output, 0);
         }
 
+#ifdef USE_HDMI_AUDIO
         /* force standby on low latency output stream so that it can reuse HDMI driver if
          * necessary when restarted */
         if (out == adev->outputs[OUTPUT_HDMI]) {
@@ -1807,6 +1828,7 @@ static int do_output_standby(struct tuna_stream_out *out)
                 pthread_mutex_unlock(&ll_out->lock);
             }
         }
+#endif
 
         /* stop writing to echo reference */
         if (out->echo_reference != NULL) {
@@ -1889,10 +1911,14 @@ static int out_set_parameters(struct audio_stream *stream, const char *kvpairs)
                         (adev->mode == AUDIO_MODE_IN_CALL))
                     do_output_standby(out);
             }
+#ifdef USE_HDMI_AUDIO
             if (out != adev->outputs[OUTPUT_HDMI]) {
+#endif
                 adev->out_device = val;
                 select_output_device(adev);
+#ifdef USE_HDMI_AUDIO
             }
+#endif
         }
         pthread_mutex_unlock(&out->lock);
         if (force_input_standby) {
@@ -1973,12 +1999,14 @@ static uint32_t out_get_latency_deep_buffer(const struct audio_stream_out *strea
 #endif
 }
 
+#ifdef USE_HDMI_AUDIO
 static uint32_t out_get_latency_hdmi(const struct audio_stream_out *stream)
 {
     struct tuna_stream_out *out = (struct tuna_stream_out *)stream;
 
     return (HDMI_MULTI_PERIOD_SIZE * HDMI_MULTI_PERIOD_COUNT * 1000) / out->config[PCM_HDMI].rate;
 }
+#endif
 
 static int out_set_volume(struct audio_stream_out *stream __unused, float left __unused,
                           float right __unused)
@@ -1986,6 +2014,7 @@ static int out_set_volume(struct audio_stream_out *stream __unused, float left _
     return -ENOSYS;
 }
 
+#ifdef USE_HDMI_AUDIO
 static int out_set_volume_hdmi(struct audio_stream_out *stream, float left,
                           float right __unused)
 {
@@ -1995,6 +2024,7 @@ static int out_set_volume_hdmi(struct audio_stream_out *stream, float left,
     out->muted = (left == 0.0f);
     return 0;
 }
+#endif
 
 static ssize_t out_write_low_latency(struct audio_stream_out *stream, const void* buffer,
                          size_t bytes)
@@ -2191,6 +2221,7 @@ exit:
     return bytes;
 }
 
+#ifdef USE_HDMI_AUDIO
 static ssize_t out_write_hdmi(struct audio_stream_out *stream, const void* buffer,
                          size_t bytes)
 {
@@ -2238,6 +2269,7 @@ exit:
 
     return bytes;
 }
+#endif
 
 static int out_get_render_position(const struct audio_stream_out *stream __unused,
                                    uint32_t *dsp_frames __unused)
@@ -3273,6 +3305,7 @@ exit:
     return status;
 }
 
+#ifdef USE_HDMI_AUDIO
 static int out_read_hdmi_channel_masks(struct tuna_stream_out *out) {
     int max_channels = 0;
     struct mixer *mixer_hdmi;
@@ -3298,6 +3331,7 @@ static int out_read_hdmi_channel_masks(struct tuna_stream_out *out) {
 
     return 0;
 }
+#endif
 
 static int adev_open_output_stream(struct audio_hw_device *dev,
                                    audio_io_handle_t handle __unused,
@@ -3329,6 +3363,7 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
     out->sample_rate = config->sample_rate;
 #endif
 
+#ifdef USE_HDMI_AUDIO
     if (flags & AUDIO_OUTPUT_FLAG_DIRECT &&
                    devices == AUDIO_DEVICE_OUT_AUX_DIGITAL) {
         ALOGV("adev_open_output_stream() HDMI multichannel");
@@ -3356,6 +3391,9 @@ static int adev_open_output_stream(struct audio_hw_device *dev,
         /* FIXME: workaround for channel swap on first playback after opening the output */
         out->restart_periods_cnt = out->config[PCM_HDMI].period_count * 2;
     } else if (flags & AUDIO_OUTPUT_FLAG_DEEP_BUFFER) {
+#else
+    if (flags & AUDIO_OUTPUT_FLAG_DEEP_BUFFER) {
+#endif
         ALOGV("adev_open_output_stream() deep buffer");
         if (ladev->outputs[OUTPUT_DEEP_BUF] != NULL) {
             ret = -ENOSYS;

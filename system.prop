@@ -1,0 +1,25 @@
+#
+# system.prop for tuna
+#
+
+# Adding a '--' to the end of rild's args prevents RIL_Init from crashing
+# if Android passes an unknown argument after our own.
+rild.libargs=-d /dev/ttys0 --
+rild.libpath=/system/lib/libsecril-shim.so
+
+ro.opengles.version=131072
+ro.sf.lcd_density=320
+
+# WiFi Interface
+# wlan0 has been the default forever,
+# so don't bother setting it unless that changes.
+#wifi.interface=wlan0
+
+# Enable AAC 5.1 output
+media.aac_51_output_enabled=1
+
+# Disable VFR support for encoders
+debug.vfr.enable=0
+
+# Low-RAM optimizations
+dalvik.vm.dex2oat-flags=--no-watch-dog

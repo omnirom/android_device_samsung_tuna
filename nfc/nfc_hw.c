@@ -32,21 +32,26 @@ static uint8_t pn544_eedata_settings[][4] = {
     ,{0x00,0x9B,0xD6,0x1E} // GSP setting for this threshold
     ,{0x00,0x9B,0xDD,0x1C} // GSP setting for this threshold
     ,{0x00,0x9B,0x84,0x13} // ANACM2 setting
-#ifdef maguro
+#if defined(maguro)
     // Maguro load modulation settings
     ,{0x00,0x99,0x29,0xF4} // Type A load modulation amplitude fine tuning
     ,{0x00,0x99,0x2A,0xF4} // Type B load modulation amplitude fine tuning
     ,{0x00,0x99,0x2B,0xF4} // Type B' load modulation amplitude fine tuning
     ,{0x00,0x99,0x85,0xF1} // Type Felica load modulation amplitude fine tuning
-#endif
-#ifdef toro
+#elif defined(toro) || defined(toroplus)
     // Toro load modulation settings
     ,{0x00,0x99,0x29,0xF3} // Type A load modulation amplitude fine tuning
     ,{0x00,0x99,0x2A,0xF3} // Type B load modulation amplitude fine tuning
     ,{0x00,0x99,0x2B,0xF3} // Type B' load modulation amplitude fine tuning
     ,{0x00,0x99,0x85,0xF1} // Type Felica load modulation amplitude fine tuning
+#elif defined(tuna)
+    // "Tuna" load modulation settings
+    // Compromise settings for builds targeting both models.
+    ,{0x00,0x99,0x29,0xF4} // Type A load modulation amplitude fine tuning
+    ,{0x00,0x99,0x2A,0xF4} // Type B load modulation amplitude fine tuning
+    ,{0x00,0x99,0x2B,0xF4} // Type B' load modulation amplitude fine tuning
+    ,{0x00,0x99,0x85,0xF1} // Type Felica load modulation amplitude fine tuning
 #endif
-    // For tuna we don't override load modulation settings.
 
     // Enable PBTF
     ,{0x00,0x98,0x00,0x3F} // SECURE_ELEMENT_CONFIGURATION - No Secure Element

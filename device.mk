@@ -201,6 +201,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.hwui.disable_scissor_opt=true \
 	debug.hwui.render_dirty_regions=false
 
+# Disable VFR support for encoders
+PRODUCT_PROPERTY_OVERRIDES += \
+	debug.vfr.enable=0
+
 PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_TAGS += \

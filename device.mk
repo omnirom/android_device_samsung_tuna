@@ -26,6 +26,9 @@ DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay
 # Include Omni specific additions
 $(call inherit-product, device/samsung/tuna/device-omni.mk)
 
+# inherit from omap4
+$(call inherit-product-if-exists, hardware/ti/omap4/omap4.mk)
+
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
 # we do this little trick to fall back to the hdpi version
@@ -35,8 +38,7 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # HALs
 PRODUCT_PACKAGES += \
-	hwcomposer.tuna \
-	camera.tuna \
+	camera.omap4 \
 	lights.tuna \
 	nfc.tuna \
 	power.tuna \
@@ -203,28 +205,6 @@ PRODUCT_PACKAGES += \
 	fsck.f2fs \
 	fibmap.f2fs \
 	f2fstat
-
-# TI OMAP4
-PRODUCT_PACKAGES += \
-	libion_ti \
-	smc_pa_ctrl \
-	tf_daemon \
-	libtf_crypto_sst \
-	pvrsrvinit \
-	libPVRScopeServices.so
-
-PRODUCT_PACKAGES += \
-	libdomx \
-	libOMX_Core \
-	libOMX.TI.DUCATI1.VIDEO.H264E \
-	libOMX.TI.DUCATI1.VIDEO.MPEG4E \
-	libOMX.TI.DUCATI1.VIDEO.DECODER \
-	libOMX.TI.DUCATI1.VIDEO.DECODER.secure \
-	libOMX.TI.DUCATI1.VIDEO.CAMERA \
-	libOMX.TI.DUCATI1.MISC.SAMPLE \
-	libstagefrighthw \
-	libI420colorconvert \
-	libtiutils_custom
 
 # DCC
 PRODUCT_PACKAGES += \

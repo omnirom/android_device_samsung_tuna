@@ -1,0 +1,21 @@
+#
+# system.prop for tuna
+#
+
+rild.libargs=-d /dev/ttys0
+rild.libpath=/vendor/lib/libsec-ril.so
+
+ro.opengles.version=131072
+ro.sf.lcd_density=320
+
+# WiFi Interface
+wifi.interface=wlan0
+
+# Enable AAC 5.1 output
+media.aac_51_output_enabled=1
+
+# Set default USB interface
+persist.sys.usb.config=mtp
+
+# Disable VFR support for encoders
+debug.vfr.enable=0

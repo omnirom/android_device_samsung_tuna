@@ -252,6 +252,7 @@ service tuna_setup /system/vendor/bin/tunasetup.sh
     class core
     user root
     group root
+    seclabel u:r:recovery:s0
     disabled
     oneshot
 

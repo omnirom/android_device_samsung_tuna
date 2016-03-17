@@ -18,6 +18,10 @@ allow recovery property_socket:sock_file write;
 allow recovery init:unix_stream_socket connectto;
 allow recovery tee_fs_prop:property_service set;
 
+# For moving files in tunasetup
+allow recovery system_file:dir { add_name rename remove_name rmdir write unlink };
+allow recovery system_file:file { rename write unlink };
+
 # For creating or checking /tee
 allow recovery tee_block_device:blk_file { getattr open ioctl read write };
 allow recovery unlabeled:dir { add_name create getattr open read relabelfrom relabelto search setattr write };

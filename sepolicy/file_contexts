@@ -40,7 +40,8 @@
 /system/vendor/bin/tee-fs-setup.sh			u:object_r:recovery_exec:s0
 /system/bin/smc_pa_ctrl					u:object_r:smc_pa_ctrl_exec:s0
 
-# Generic setup
+# Tuna & generic setup
+/system/vendor/bin/tunasetup.sh				u:object_r:recovery_exec:s0
 /system/bin/setup_fs					u:object_r:fs_setup_exec:s0
 
 # Block devices

@@ -1,6 +1,9 @@
 # Use invensense stuff in-tree
 BOARD_USES_GENERIC_INVENSENSE := false
 
+# Use GCC 4.7 - any newer version can potentionally bork the mmc quirk patching
+KERNEL_TOOLCHAIN := "$(ANDROID_BUILD_TOP)/prebuilts/gcc/$(strip $(HOST_OS))-x86/arm/arm-eabi-4.7/bin"
+
 # Recovery
 TARGET_RECOVERY_DEVICE_DIRS += device/samsung/tuna
 

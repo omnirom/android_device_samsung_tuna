@@ -22,6 +22,9 @@ DEVICE_FOLDER := device/samsung/tuna
 # Build SGX KM
 -include hardware/ti/omap4/pvr-km.mk
 
+# Inherit Omni specific board config
+-include device/samsung/tuna/BoardConfigOmni.mk
+
 PRODUCT_VENDOR_KERNEL_HEADERS += $(DEVICE_FOLDER)/kernel-headers
 
 TARGET_NO_BOOTLOADER := true
@@ -103,6 +106,6 @@ BOARD_SEPOLICY_DIRS += \
 	$(DEVICE_FOLDER)/sepolicy
 
 # Recovery
-RECOVERY_FSTAB_VERSION := 2
+# RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_FSTAB := $(DEVICE_FOLDER)/rootdir/fstab.tuna
 TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"

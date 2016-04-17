@@ -24,6 +24,10 @@ DEVICE_FOLDER := device/samsung/tuna
 # Processor
 TARGET_BOARD_OMAP_CPU := 4460
 
+# Include Omni specific additions
+$(call inherit-product, device/samsung/tuna/device-omni.mk)
+
+# inherit from omap4
 $(call inherit-product-if-exists, hardware/ti/omap4/omap4.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay

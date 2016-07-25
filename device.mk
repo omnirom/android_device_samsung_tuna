@@ -37,14 +37,12 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # HALs
 PRODUCT_PACKAGES += \
-	audio.a2dp.default \
 	audio.primary.tuna \
-	audio.r_submix.default \
-	audio.usb.default \
 	camera.omap4 \
+	keystore.tuna \
+	libpn544_fw \
 	lights.tuna \
 	nfc.tuna \
-	libpn544_fw \
 	power.tuna \
 	sensors.tuna
 
@@ -58,6 +56,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	charger_res_images
 
+# Audio
+PRODUCT_PACKAGES += \
+	audio.a2dp.default \
+	audio.usb.default \
+	audio.r_submix.default
+
 PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/audio/audio_policy.conf:system/etc/audio_policy.conf \
 	$(DEVICE_FOLDER)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf
@@ -70,9 +74,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	media.aac_51_output_enabled=true
 
 # SMC
-PRODUCT_PACKAGES += \
-	keystore.tuna
-
  PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/tee-fs-setup.sh:system/vendor/bin/tee-fs-setup.sh
 

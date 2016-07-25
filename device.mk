@@ -37,14 +37,12 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 # HALs
 PRODUCT_PACKAGES += \
-	audio.a2dp.default \
 	audio.primary.tuna \
-	audio.r_submix.default \
-	audio.usb.default \
 	camera.omap4 \
+	keystore.tuna \
+	libpn544_fw \
 	lights.tuna \
 	nfc.tuna \
-	libpn544_fw \
 	power.tuna \
 	sensors.tuna
 
@@ -70,9 +68,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	media.aac_51_output_enabled=true
 
 # SMC
-PRODUCT_PACKAGES += \
-	keystore.tuna
-
  PRODUCT_COPY_FILES += \
 	$(DEVICE_FOLDER)/tee-fs-setup.sh:system/vendor/bin/tee-fs-setup.sh
 

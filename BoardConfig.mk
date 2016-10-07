@@ -113,7 +113,8 @@ BOARD_SEPOLICY_UNION += \
 	dumpdcc.te \
 	pvrsrvinit.te \
 	init.te \
-	file.te
+	file.te \
+	healthd.te
 
 # Recovery
 #RECOVERY_FSTAB_VERSION := 2

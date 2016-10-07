@@ -34,9 +34,7 @@ TARGET_BOOTLOADER_BOARD_NAME := tuna
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
 # BOARD_KERNEL_CMDLINE :=
-
-# Inline kernel building
-TARGET_KERNEL_CONFIG := omnirom_tuna_defconfig
+TARGET_KERNEL_CONFIG := tuna_kitkat_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/tuna
 
 # External SGX Module

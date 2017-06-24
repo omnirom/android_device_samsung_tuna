@@ -1,3 +1,6 @@
+# Boot Animation
+TARGET_BOOTANIMATION_USE_RGB565 := true
+
 # Use invensense stuff in-tree
 BOARD_USES_GENERIC_INVENSENSE := false
 

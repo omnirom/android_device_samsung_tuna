@@ -20,7 +20,7 @@ TARGET_EXCLUDE_LIVEWALLPAPERS := true
 TARGET_USES_AOSP_BROWSER := true
 
 # Bootanimation
-TARGET_BOOTANIMATION_SIZE := 720x407
+TARGET_BOOTANIMATION_SIZE := 640x362
 
 # Inherit from our omni product configuration
 $(call inherit-product, vendor/omni/config/common.mk)

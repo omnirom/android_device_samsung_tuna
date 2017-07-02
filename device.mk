@@ -168,17 +168,7 @@ ADDITIONAL_BUILD_PROPERTIES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072 \
-	ro.sf.lcd_density=320 \
-	ro.hwui.disable_scissor_opt=true \
-	debug.hwui.render_dirty_regions=false
-
-# GPU producer to CPU consumer not supported
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.bq.gpu_to_cpu_unsupported=1
-
-# Newer camera API isn't supported.
-PRODUCT_PROPERTY_OVERRIDES += \
-	camera2.portability.force_api=1
+	ro.sf.lcd_density=320
 
 # Disable VFR support for encoders
 PRODUCT_PROPERTY_OVERRIDES += \

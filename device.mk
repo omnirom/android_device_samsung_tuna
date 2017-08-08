@@ -23,6 +23,9 @@ DEVICE_FOLDER := device/samsung/tuna
 
 DEVICE_PACKAGE_OVERLAYS := $(DEVICE_FOLDER)/overlay
 
+# Include Omni specific additions
+$(call inherit-product, device/samsung/tuna/device-omni.mk)
+
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
 # we do this little trick to fall back to the hdpi version
@@ -75,8 +78,7 @@ PRODUCT_COPY_FILES += \
 
 # Fstab
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/rootdir/fstab.tuna:root/fstab.tuna \
-	$(DEVICE_FOLDER)/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
+	$(DEVICE_FOLDER)/rootdir/fstab.tuna:root/fstab.tuna
 
 # GPS
 PRODUCT_COPY_FILES += \
@@ -101,10 +103,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
-
-# OmniTorch
-PRODUCT_PACKAGES += \
-	OmniTorch
 
 # NFC
 PRODUCT_PACKAGES += \
@@ -207,9 +205,6 @@ PRODUCT_PACKAGES += \
 	fsck.f2fs \
 	fibmap.f2fs \
 	f2fstat
-
-PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/rootdir/init.recovery.tuna.rc:root/init.recovery.tuna.rc
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-1024-dalvik-heap.mk)
 

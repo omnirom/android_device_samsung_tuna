@@ -21,6 +21,9 @@
 
 DEVICE_FOLDER := device/samsung/tuna
 
+# Processor
+TARGET_BOARD_OMAP_CPU := 4460
+
 # Include Omni specific additions
 $(call inherit-product, device/samsung/tuna/device-omni.mk)
 

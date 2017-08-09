@@ -1,6 +1,0 @@
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
-    <!-- Disable scrolling, it lags on tuna -->
-    <bool name="allow_scrolling">false</bool>
-
-</resources>

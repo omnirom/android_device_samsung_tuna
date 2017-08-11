@@ -15,4 +15,5 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_tuna.mk
+    $(LOCAL_DIR)/aosp_tuna.mk \
+    $(LOCAL_DIR)/omni_tuna.mk

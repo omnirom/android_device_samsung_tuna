@@ -27,9 +27,6 @@ DEVICE_FOLDER := device/samsung/tuna
 
 PRODUCT_VENDOR_KERNEL_HEADERS += $(DEVICE_FOLDER)/kernel-headers
 
-# Use the non-open-source parts, if they're present
--include vendor/samsung/tuna/BoardConfigVendor.mk
-
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 

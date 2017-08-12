@@ -1,3 +1,6 @@
+# Use invensense stuff in-tree
+BOARD_USES_GENERIC_INVENSENSE := false
+
 # Recovery
 TARGET_RECOVERY_DEVICE_DIRS += device/samsung/tuna
 

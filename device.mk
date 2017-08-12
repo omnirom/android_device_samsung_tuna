@@ -21,6 +21,10 @@
 
 DEVICE_FOLDER := device/samsung/tuna
 
+# Include Omni specific additions
+$(call inherit-product, device/samsung/tuna/device-omni.mk)
+
+# inherit from omap4
 $(call inherit-product-if-exists, hardware/ti/omap4/omap4.mk)
 
 DEVICE_PACKAGE_OVERLAYS += $(DEVICE_FOLDER)/overlay
@@ -77,8 +81,7 @@ PRODUCT_COPY_FILES += \
 
 # Fstab
 PRODUCT_COPY_FILES += \
-	$(DEVICE_FOLDER)/rootdir/fstab.tuna:root/fstab.tuna \
-	$(DEVICE_FOLDER)/rootdir/twrp.fstab:recovery/root/etc/twrp.fstab
+	$(DEVICE_FOLDER)/rootdir/fstab.tuna:root/fstab.tuna
 
 # GPS
 $(call inherit-product, device/common/gps/gps_us_supl.mk)

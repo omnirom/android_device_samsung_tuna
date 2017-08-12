@@ -1,3 +1,6 @@
+# Use invensense stuff in-tree
+BOARD_USES_GENERIC_INVENSENSE := false
+
 # TWRP
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true

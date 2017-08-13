@@ -1,3 +1,6 @@
+# Recovery
+TARGET_RECOVERY_DEVICE_DIRS += device/samsung/tuna
+
 # TWRP
 TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true

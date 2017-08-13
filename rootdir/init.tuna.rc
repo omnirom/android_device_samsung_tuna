@@ -34,7 +34,7 @@ on early-boot
     setrlimit 8 67108864 67108864
 
 on boot
-    mount debugfs debugfs /sys/kernel/debug
+    mount debugfs /sys/kernel/debug /sys/kernel/debug
 
     # autosuspend root hubs immediatly after attached devices
     write /sys/bus/usb/devices/usb1/power/autosuspend_delay_ms 0

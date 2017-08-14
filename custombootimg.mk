@@ -1,4 +1,5 @@
 LOCAL_PATH := $(call my-dir)
+LZMA_BIN := $(shell which lzma)
 
 $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES)
 	$(call pretty,"Target boot image: $@")
@@ -8,6 +9,10 @@ $(INSTALLED_BOOTIMAGE_TARGET): $(MKBOOTIMG) $(INTERNAL_BOOTIMAGE_FILES)
 
 $(INSTALLED_RECOVERYIMAGE_TARGET): $(recovery_ramdisk) $(MKBOOTIMG) $(recovery_kernel)
 	@echo -e ${PRT_IMG}"----- Making recovery image ------"${CL_RST}
+	@echo ----- Compressing recovery ramdisk with lzma ------
+	rm -f $(recovery_uncompressed_ramdisk).lzma
+	$(LZMA_BIN) $(recovery_uncompressed_ramdisk)
+	$(hide) cp $(recovery_uncompressed_ramdisk).lzma $(recovery_ramdisk)
 	$(call build-recoveryimage-target, $@)
 	@echo -e ${PRT_IMG}"----- Made recovery image: $@ --------"${CL_RST}
 

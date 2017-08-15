@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dc7fe700_6fba6696",
+        "filename": "custombootimg.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-08-15T09:44:55Z",
+      "side": 1,
+      "message": "Maybe the copy didn\u0027t preserve chmod +x ?",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 81
+      },
+      "revId": "99c3a57761ed3ad7007289db54f8f9e1b801646d",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "28271745_0fa24ad1",
+        "filename": "recovery/root/init.recovery.tuna.rc",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-08-15T09:44:55Z",
+      "side": 1,
+      "message": "Partition need to be RW.",
+      "range": {
+        "startLine": 21,
+        "startChar": 74,
+        "endLine": 21,
+        "endChar": 76
+      },
+      "revId": "99c3a57761ed3ad7007289db54f8f9e1b801646d",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}

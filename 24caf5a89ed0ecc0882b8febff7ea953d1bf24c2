@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ffc5a290_8fc650f6",
+        "filename": "device-omni.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-08-16T17:31:00Z",
+      "side": 1,
+      "message": "Why not doing the copy into the makefile you add as a LOCAL_POST_INSTALL_CMD ?",
+      "revId": "24caf5a89ed0ecc0882b8febff7ea953d1bf24c2",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3cef2c45_d78a4a27",
+        "filename": "recovery/Android.mk",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-08-16T17:31:00Z",
+      "side": 1,
+      "message": "I really like this way, nice job!",
+      "revId": "24caf5a89ed0ecc0882b8febff7ea953d1bf24c2",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}

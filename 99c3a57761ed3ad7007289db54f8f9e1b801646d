@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "f660a092_28c98581",
+        "filename": "custombootimg.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1000551
+      },
+      "writtenOn": "2017-08-16T12:06:03Z",
+      "side": 1,
+      "message": "nope, that\u0027s not the issue, solved it, will share later",
+      "parentUuid": "dc7fe700_6fba6696",
+      "range": {
+        "startLine": 24,
+        "startChar": 37,
+        "endLine": 24,
+        "endChar": 81
+      },
+      "revId": "99c3a57761ed3ad7007289db54f8f9e1b801646d",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "28271745_0fa24ad1",
         "filename": "recovery/root/init.recovery.tuna.rc",
         "patchSetId": 5

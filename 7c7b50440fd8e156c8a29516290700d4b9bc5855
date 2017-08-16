@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "466e8827_0112a1cf",
+        "filename": "recovery/root/init.recovery.tuna.rc",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-08-16T18:05:09Z",
+      "side": 1,
+      "message": "Maybe debug output can be removed now?",
+      "revId": "7c7b50440fd8e156c8a29516290700d4b9bc5855",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}

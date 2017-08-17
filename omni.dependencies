@@ -7,8 +7,8 @@
   },
   {
     "remote": "omnirom",
-    "repository": "android_kernel_samsung_tuna",
-    "target_path": "kernel/samsung/tuna",
+    "repository": "android_kernel_ti_omap4",
+    "target_path": "kernel/ti/omap4",
     "revision": "android-6.0"
   },
   {

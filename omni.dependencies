@@ -12,18 +12,6 @@
     "revision": "android-7.1"
   },
   {
-    "remote": "aosp",
-    "repository": "platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.7",
-    "target_path": "prebuilts/gcc/linux-x86/arm/arm-eabi-4.7",
-    "revision": "master"
-  },
-  {
-    "remote": "aosp",
-    "repository": "platform/prebuilts/gcc/darwin-x86/arm/arm-eabi-4.7",
-    "target_path": "prebuilts/gcc/darwin-x86/arm/arm-eabi-4.7",
-    "revision": "master"
-  },
-  {
     "remote": "omnirom",
     "repository": "android_packages_apps_Nfc",
     "target_path": "packages/apps/Nfc-nxp",

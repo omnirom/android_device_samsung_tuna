@@ -16,14 +16,14 @@
 
 DEVICE_FOLDER := device/samsung/tuna
 
+# Inherit Omni specific board config
+-include device/samsung/tuna/BoardConfigOmni.mk
+
 # inherit from omap4
 -include hardware/ti/omap4/BoardConfigCommon.mk
 
 # Build SGX KM
 -include hardware/ti/omap4/pvr-km.mk
-
-# Inherit Omni specific board config
--include device/samsung/tuna/BoardConfigOmni.mk
 
 PRODUCT_VENDOR_KERNEL_HEADERS += $(DEVICE_FOLDER)/kernel-headers
 

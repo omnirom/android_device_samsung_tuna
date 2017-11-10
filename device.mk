@@ -205,6 +205,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	dumpdcc
 
+# User packages
+PRODUCT_PACKAGES += \
+	Browser2
+
 # cdma is for toro and toroplus, gsm is for maguro.
 # the ones not applicable to the device will be removed on first boot-up.
 PRODUCT_COPY_FILES += \

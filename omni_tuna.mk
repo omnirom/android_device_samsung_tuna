@@ -16,9 +16,6 @@
 # Exclude Live Wallpapers
 TARGET_EXCLUDE_LIVEWALLPAPERS := true
 
-# Use the AOSP browser
-TARGET_USES_AOSP_BROWSER := true
-
 # Bootanimation
 TARGET_BOOTANIMATION_SIZE := 320x181
 

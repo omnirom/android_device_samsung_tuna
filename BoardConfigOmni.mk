@@ -25,3 +25,6 @@ TW_BRIGHTNESS_PATH := /sys/class/backlight/s6e8aa0/brightness
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/platform/omap/omap_temp_sensor.0/temperature
 TARGET_RECOVERY_DEVICE_MODULES := libtf_crypto_sst smc_pa_ctrl_recovery tf_daemon_recovery keystore.tuna
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/tuna/custombootimg.mk
+
+# Enable charging light
+TARGET_USE_CHARGING_LED := true
